@@ -54,6 +54,8 @@ app.use(flash());
 app.get('/', shopRouter.defaultRoute);
 app.get('/register', shopRouter.registerRoute);
 app.get('/login', shopRouter.loginRoute);
+app.post('/register', shopRouter.regClient);
+app.post('/login', shopRouter.Login)
 
 
 //start the server
