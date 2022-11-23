@@ -14,6 +14,7 @@
     <div class="topnav">
         <a class="active" href="#home">Spaza Suggestions</a>
     </div>
+    <a class="active" href="/register">Sign-up</a>
 
     <br><br>
 
@@ -22,20 +23,25 @@
             <h3>Please select a town & add a suggestion</h3>
         </span>
         <br>
+
         <form action="/" method="post">
+        <div class="form">
+
             <select name="townships" class="kasi">
 
                 <option href="/expenses">--townships--</option>
 
                 {{#each townships}}
-                <option value="{{area_name}}">{{area_name}}</option>
+                <option value="{{id}}">{{area_name}}</option>
                 {{/each}}
 
             </select><br><br>
-            <textarea rows="4" cols="50" name="comment" form="usrform">Suggestions...</textarea>
+            <textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Suggestions..."></textarea>
             <br><br>
              
               <button style="font-size:24px">Add <i class="fa fa-check-square-o" style="color:green;"></i></button>
+
+        </div>
         </form>
 
 

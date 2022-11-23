@@ -4,10 +4,19 @@ function SpazaRouters(dataFactory, db){
             townships: await dataFactory.areas()
         }
         )
+    }
+    async function registerRoute(req,res){
+        res.render('register')
+    }
+    async function PostSuggestion(req, res){
 
     }
+
+
     return {
-        defaultRoute
+        defaultRoute,
+        PostSuggestion,
+        registerRoute
     }
 
 }
