@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Spaza Suggestions</a>
+    </div>
+
+    <br><br>
+
+    <div class="towns">
+        <span class="head">
+            <h3>Please select a town & add a suggestion</h3>
+        </span>
+        <br>
+        <form action="/" method="post">
+            <select name="townships" class="kasi">
+
+                <option href="/expenses">--townships--</option>
+
+                {{#each townships}}
+                <option value="{{area_name}}">{{area_name}}</option>
+                {{/each}}
+
+            </select><br><br>
+            <textarea rows="4" cols="50" name="comment" form="usrform">Suggestions...</textarea>
+        </form>
+
+
+
+    </div>
+
+</body>
+
+</html>
