@@ -50,7 +50,6 @@ function SpazaRouters(dataFactory, db) {
         try {
             await dataFactory.suggestProduct(areaID, sessionId, suggest);
             let data = await dataFactory.suggestions(sessionId);
-            res.redirect('back')
             res.render('suggestions',{
                 data
             })
