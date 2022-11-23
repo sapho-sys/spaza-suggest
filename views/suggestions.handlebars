@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
+
 <body>
-    
+    <div class="topnav">
+        <a class="active" href="#home">Spaza Suggestions</a>
+    </div>
+    <a class="active" href="/register">Sign-up</a>
+     <a class="active" href="/login">LogIn</a>
+
+    <br><br>
+
+    <div class="towns">
+        <span class="head">
+            {{!-- {{#client}} --}}
+            <h3>Please select a town & add a suggestion {{client}}</h3>
+            {{!-- {{/client}} --}}
+        </span>
+        <br>
+
+        <form action="/suggest" method="post">
+        <div class="form">
+
+            <select name="townships" class="kasi">
+
+                <option href="/expenses">--townships--</option>
+
+                {{#each townships}}
+                <option value="{{id}}">{{area_name}}</option>
+                {{/each}}
+
+            </select><br><br>
+            {{!-- <textarea type='text' rows="4" cols="50" name="comment" form="usrform" placeholder="Suggestions..."></textarea> --}}
+             <input type="password" placeholder="Enter Password" name="comment" required>
+            <br><br>
+             
+              <button style="font-size:24px">Add <i class="fa fa-check-square-o" style="color:green;"></i></button>
+
+        </div>
+        </form>
+
+
+
+    </div>
+
+    <div class="suggestions">
+        {{#each data}}
+        <span><h5>{{product_name}}</h5></span>
+        {{/each}}
+    </div>
+
 </body>
+
 </html>

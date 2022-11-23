@@ -55,7 +55,9 @@ app.get('/', shopRouter.defaultRoute);
 app.get('/register', shopRouter.registerRoute);
 app.get('/login', shopRouter.loginRoute);
 app.post('/register', shopRouter.regClient);
-app.post('/login', shopRouter.Login)
+app.get('/suggestions',shopRouter.defaultRoute)
+app.post('/login', shopRouter.Login);
+app.post('/suggest', shopRouter.PostSuggestion)
 
 
 //start the server

@@ -1,48 +1,62 @@
 // import express from "express";
 // import ShortUniqueId from "short-unique-id";
 // const uid = new ShortUniqueId({ length: 5 });
-function SpazaRouters(dataFactory, db){
-    // var code = '';
-    async function defaultRoute(req,res){
-        res.render('index',{
-            townships: await dataFactory.areas()
-        }
-        )
+function SpazaRouters(dataFactory, db) {
+    //    var sessionCode = req.session.id
+    async function defaultRoute(req, res) {
+        res.render('suggestions', {
+            townships: await dataFactory.areas(),
+        })
     }
-    async function registerRoute(req,res){
-        res.render('register',{
+    async function registerRoute(req, res) {
+        res.render('register', {
             townships: await dataFactory.areas()
         })
     }
-    async function regClient(req, res){
+    async function regClient(req, res) {
         const userName = req.body.username;
-        if(userName !== ''){ 
+        if (userName !== '') {
             const regUser = await dataFactory.registerClient(userName);
-             console.log(`Here is the code`, regUser);
-             req.flash('error', `Here is your password::${regUser}`);
-             res.redirect('back')
-        }else{
+            req.flash('error', `Here is your password::${regUser}`);
+            res.redirect('back')
+        } else {
             req.flash('error', 'Please ensure that you fill in all fields');
             res.redirect('back')
         }
     }
 
-    async function Login(req, res){
+    async function Login(req, res) {
         const password = req.body.password;
-        if(password !== ''){
+        if (password !== '') {
             const enter = await dataFactory.clientLogin(password);
-            console.log('Here is the client', enter);
-            req.session.enter = enter;
-            res.redirect('/');
-        }else{
+            let sessionCode = enter.id
+             req.session.code =  sessionCode;
+             console.log(req.session);
+               console.log(sessionCode + 'dfdfdfdfd');
+         
+            res.redirect('/suggestions');
+        } else {
             req.flash('error', 'Invalid password');
             res.redirect('back')
         }
     }
-    async function loginRoute(req, res){
+    async function loginRoute(req, res) {
         res.render('login')
     }
-    async function PostSuggestion(req, res){
+    async function PostSuggestion(req, res) {
+        const areaID = req.body.townships;
+        const suggest = req.body.comment;
+        let sessionId = req.session.code;
+        try {
+            await dataFactory.suggestProduct(areaID, sessionId, suggest);
+            let data = await dataFactory.suggestions(sessionId);
+            res.render('suggestions',{
+                data
+            })
+        } catch (error) {
+            console.log('Bug', error)
+
+        }
 
     }
 
