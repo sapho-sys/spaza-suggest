@@ -3,7 +3,6 @@ import assert from 'assert';
 import SpazaSuggest from '../spaza-suggest.js';
 import pgPromise from 'pg-promise';
 
-// const DATABASE_URL= process.env.DATABASE_URL || "postgresql://codex-coder:pg123@localhost:5432/spaza_suggest";
 const DATABASE_URL= process.env.DATABASE_URL || 'postgresql://postgres:sap123@localhost:5432/my_spaza';
 
 const config = { 
@@ -11,11 +10,6 @@ const config = {
 }
 const pgp = pgPromise();
 
-// if (process.env.NODE_ENV == 'production') {
-// 	config.ssl = { 
-// 		rejectUnauthorized : false
-// 	}
-// }
 
 const db = pgp(config);
 const spazaSuggest = SpazaSuggest(db);
