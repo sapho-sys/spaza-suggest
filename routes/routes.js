@@ -1,8 +1,5 @@
-// import express from "express";
-// import ShortUniqueId from "short-unique-id";
-// const uid = new ShortUniqueId({ length: 5 });
 function SpazaRouters(dataFactory, db) {
-    //    var sessionCode = req.session.id
+
     async function defaultRoute(req, res) {
         res.render('index')
     }
@@ -34,9 +31,6 @@ function SpazaRouters(dataFactory, db) {
             const enter = await dataFactory.clientLogin(password);
             let sessionCode = enter.id
              req.session.code =  sessionCode;
-             console.log(req.session);
-               console.log(sessionCode + 'dfdfdfdfd');
-         
             res.redirect('/suggestions');
         } else {
             req.flash('error', 'Invalid password');
@@ -53,6 +47,7 @@ function SpazaRouters(dataFactory, db) {
         try {
             await dataFactory.suggestProduct(areaID, sessionId, suggest);
             let data = await dataFactory.suggestions(sessionId);
+            res.redirect('back')
             res.render('suggestions',{
                 data
             })
