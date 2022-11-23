@@ -4,6 +4,9 @@ function SpazaRouters(dataFactory, db) {
         res.render('index')
     }
     async function suggestRoute(req, res) {
+        if(!req.session.code){
+            res.redirect('/login')
+        }
         res.render('suggestions', {
             townships: await dataFactory.areas(),
         })
