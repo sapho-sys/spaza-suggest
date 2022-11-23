@@ -90,6 +90,13 @@ p {
 input {
     margin-left: 30%;
 }
+select{
+    margin-left: 30%;
+}
+
+button{
+    margin-left: 30%;
+}
 
 .form {
     margin-left: auto;

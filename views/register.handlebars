@@ -19,6 +19,16 @@
             <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
+
+            <select name="townships" class="kasi">
+
+                <option href="/expenses">--townships--</option>
+
+                {{#each townships}}
+                <option value="{{id}}">{{area_name}}</option>
+                {{/each}}
+
+            </select><br><br>
             <input type="text" placeholder="Enter Username" name="username" id="user" required><br><br>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
             <hr>

@@ -6,7 +6,9 @@ function SpazaRouters(dataFactory, db){
         )
     }
     async function registerRoute(req,res){
-        res.render('register')
+        res.render('register',{
+            townships: await dataFactory.areas()
+        })
     }
     async function loginRoute(req, res){
         res.render('login')
