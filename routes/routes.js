@@ -8,6 +8,9 @@ function SpazaRouters(dataFactory, db){
     async function registerRoute(req,res){
         res.render('register')
     }
+    async function loginRoute(req, res){
+        res.render('login')
+    }
     async function PostSuggestion(req, res){
 
     }
@@ -16,7 +19,8 @@ function SpazaRouters(dataFactory, db){
     return {
         defaultRoute,
         PostSuggestion,
-        registerRoute
+        registerRoute,
+        loginRoute
     }
 
 }

@@ -52,7 +52,8 @@ app.use(session({
 app.use(flash());
 
 app.get('/', shopRouter.defaultRoute);
-app.get('/register', shopRouter.registerRoute)
+app.get('/register', shopRouter.registerRoute);
+app.get('/login', shopRouter.loginRoute);
 
 
 //start the server

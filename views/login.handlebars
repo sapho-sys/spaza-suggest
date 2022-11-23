@@ -5,8 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+    <form action="/login" method="post">
+        {{!-- <div class="imgcontainer">
+            <img src="./images/profile.png" alt="Avatar" class="logo img-fluid">
+        </div> --}}
+
+        <div class="imgcontainer">
+            <h1>SignIn</h1>
+            <p>Please fill in this form to login into your account</p>
+            <hr>
+
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <br><br>
+
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <hr>
+            <br>
+
+            <button class="submitbtn" type="submit">Login</button>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            {{#if messages.error}}
+            <div class="errors">
+                <h5 class="error">{{messages.error}}</h5>
+            </div>
+            {{/if}}
+         
+        </div>
+    </form>
     
 </body>
 </html>
